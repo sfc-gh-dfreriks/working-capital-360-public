@@ -7,8 +7,15 @@ separate serverless Cortex agent when configured.
 
 ## Pages
 
-Working Capital Overview · Cash & Liquidity · Accounts Receivable · Accounts Payable ·
+Ask Cortex · Working Capital Overview · Cash & Liquidity · Accounts Receivable · Accounts Payable ·
 Early Payment & SCF · Inventory · WC Opportunities · BDC Sources & Lineage · Ask the Agent
+
+## Ask Cortex
+
+The Ask Cortex page and the "Ask Cortex about <page>" buttons show a Cortex analysis of each page's
+default question, **baked at export time** into `public/data/ask_cortex.json` by real `AI_COMPLETE` calls.
+Custom questions need the live app (local or Native App); the static build says so instead of calling Cortex.
+The baked text is model output: check figures against the dashboards before quoting them.
 
 ## Data honesty
 
@@ -33,7 +40,8 @@ Early Payment & SCF · Inventory · WC Opportunities · BDC Sources & Lineage ·
 ```bash
 # from working_capital_360_react, with its server running on :3010
 EXPORT_BASE=http://localhost:3010 node scripts/export-static.mjs
-cp client/public/data/*.json ../working-capital-360-public/public/data/
+cp client/public/data/*.json   # includes ask_cortex.json (makes real Cortex calls)
+# ../working-capital-360-public/public/data/
 ```
 Commit and push — Actions redeploys.
 
