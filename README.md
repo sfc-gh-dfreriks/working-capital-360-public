@@ -2,13 +2,12 @@
 
 A static, no-login public build of the SAP BDC Working Capital 360 dashboard, deployed to
 GitHub Pages. Dashboards render from a **point-in-time data snapshot** (no Snowflake
-connection, no credentials in the browser). The optional "Ask the Agent" page calls a
-separate serverless Cortex agent when configured.
+connection, no credentials in the browser). The app opens on the Executive Dashboard.
 
 ## Pages
 
-Ask Cortex · Working Capital Overview · Cash & Liquidity · Accounts Receivable · Accounts Payable ·
-Early Payment & SCF · Inventory · WC Opportunities · BDC Sources & Lineage · Ask the Agent
+Ask Cortex · Executive Dashboard · Cash & Liquidity · Accounts Receivable · Accounts Payable ·
+Early Payment & SCF · Inventory · WC Opportunities · BDC Sources & Lineage
 
 ## Ask Cortex
 
@@ -33,7 +32,7 @@ The baked text is model output: check figures against the dashboards before quot
   default period (see `filters.json`). Selecting a different period falls back to the
   default-period snapshot (see `filterKey()` / `getKeyed()` in `src/lib/api.ts`).
 - **Live agent (optional):** set the repo variable `AGENT_URL` to a deployed Cortex agent
-  endpoint. If unset, Ask the Agent shows a "not available" notice; dashboards work fully.
+  endpoint. If unset, live agent answers are unavailable; dashboards work fully.
 
 ## Refresh the data
 
